@@ -12,6 +12,7 @@
 	import video from '../assets/GSA-SMALL.mp4';
 	import image from '../assets/GSA.jpeg';
 	import { page } from '$app/stores';
+	import {setupConnection} from '../stores'
 	import { onMount } from 'svelte';
 
 	let URL = null;
@@ -21,6 +22,21 @@
 		URL = url;
 		console.log(URL);
 	};
+
+	const token = $page.url.searchParams.get('token') || null;
+
+	// Setup Websocket using token
+	if(token != null) {
+		setupConnection(token)
+	}
+
+	// Add the token to the end of the dashboard url
+	applications.forEach((app, index)=>{
+		if(!app.url.includes('dnaspaces')) return;
+		applications[index].url = app.url+token;
+	})
+
+
 
 	const includeVideoBackground = $page.url.searchParams.get('includeVideoBackground') === 'yes';
 </script>
@@ -136,15 +152,18 @@
 						</p>
 						<div class="columns">
 							<div class="column">
-								<SensorData title="Air Quality" icon="smoke" value="3" color="danger" />
-								<SensorData title="Humidity" icon="water-percent" value="20%" color="warning" />
+								<SensorData title="Temperature" icon="thermometer" type='ambientTemp' color="danger" />
 							</div>
 							<div class="column">
-								<SensorData title="Noise" icon="waveform" value="30 dBA" color="success" />
+								<SensorData title="Air Quality" icon="smoke" type='airQuality' color="danger" />
+								<SensorData title="Humidity" icon="water-percent" type='relativeHumidity'  color="warning" />
+							</div>
+							<div class="column">
+								<SensorData title="Noise" icon="waveform" type='ambientNoise' color="success" />
 								<SensorData
 									title="Occupancy"
 									icon="account-group"
-									value="21 / 45"
+									type='peopleCount'
 									color="success"
 								/>
 							</div>

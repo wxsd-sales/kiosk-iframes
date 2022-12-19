@@ -81,7 +81,7 @@
 	</div>
 	<div class="level-right">
 		<div class="level-item">
-			<button class="button is-success p-5" on:click={onClick}>
+			<button onclick={`location.href='sip://${deviceSIPAddress}'`} class="button is-success p-5">
 				<span class="icon ">
 					<i class="mdi mdi-36px mdi-phone" />
 				</span>

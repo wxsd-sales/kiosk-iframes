@@ -21,7 +21,7 @@ export default [
     "subtitle": "View Floorplan with Environmental Info",
     "imgUrl": office,
     "avatarUrl": "map-marker-account-outline",
-    "url": "https://workspaces.dnaspaces.io/?token=fdf320ef-1aae-4479-b638-3dd823f9e4bb#/dashboard",
+    "url": "https://workspaces.dnaspaces.io/?token=",
     "description": "Locate an available space to work and view environmental data on a 3D map"
   },
   {
