@@ -11,11 +11,14 @@ export const weather = writable('Sunny');
 export const temperature = writable('75°');
 export const city = writable('New York');
 
+export const building = writable('');
+export const floor = writable('');
+
 export function connect(token) {
 
     if (!browser) return;
 
-    const location = 1233867
+    //const location = 1233867
     const events = [
         "heartbeat",
         "location",
@@ -26,6 +29,7 @@ export function connect(token) {
 
     console.log('Setting up connection')
     let heartbeat
+    let locationId = ''
     const socket = new WebSocket('wss://webex-api-server.dnaspaces.io/webexClient?token=' + token);
 
     socket.binaryType = "blob";
@@ -33,13 +37,13 @@ export function connect(token) {
     // Open websocket and subscrib to events
     socket.onopen = (event) => {
         console.log('Sending Websocket setup')
-        for (let i = 0; i < events.length; i++) {
-            socket.send(JSON.stringify({ "event": events[i], "location": location },))
-        }
-        // Send heart beat every 30 sec
-        heartbeat = setInterval(() => {
-            socket.send(JSON.stringify({ "event": "heartbeat", "location": location },))
-        }, 30 * 1000)
+        // for (let i = 0; i < events.length; i++) {
+        //     socket.send(JSON.stringify({ "event": events[i], "location" : token}))
+        // }
+        // // Send heart beat every 30 sec
+        // heartbeat = setInterval(() => {
+        //     socket.send(JSON.stringify({ "event": "heartbeat", "location" : token },))
+        // }, 30 * 1000)
     }
 
     // Process all incoming telemetry events
@@ -77,6 +81,22 @@ export function connect(token) {
             case 'floorAvailability':
                 availablity.set(data)
                 break;
+            case 'contextInfo':
+                console.log('Context Information Received')
+                building.set(data.building);
+                floor.set(data.floor);
+                locationId = data.devicePath.pop();
+                console.log('Location Id set to :' +locationId)
+                console.log('Sending Websocket setup')
+                for (let i = 0; i < events.length; i++) {
+                    socket.send(JSON.stringify({ "event": events[i], "location" : locationId}))
+                }
+                // Send heart beat every 30 sec
+                heartbeat = setInterval(() => {
+                    socket.send(JSON.stringify({ "event": "heartbeat", "location" : locationId },))
+                }, 30 * 1000)
+                break;
+
         }
     }
 }

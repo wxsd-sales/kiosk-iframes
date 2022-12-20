@@ -11,7 +11,7 @@ export class getColor{
 			case 'Very Quiet':
 				return 'success';
 			default:
-				return 'warning';
+				return 'success';
 		}
 	}
 
@@ -37,11 +37,11 @@ export class getColor{
      getTempColor(value) {
 		let temp =  Number(value.slice(0, -2));
 		if (temp < 73) {
-			return 'Info';
+			return 'info';
 		} else if (temp >= 73 && temp < 80) {
 			return 'success';
 		} else if (temp >= 80 && temp <= 90) {
-			return 'orange';
+			return 'warning';
 		} else {
 			return 'red';
 		}
@@ -76,7 +76,7 @@ export class getColor{
 			case 'High':
 				return 'danger';
 			default:
-				return 'warning';
+				return 'success';
 		}
 	}
 

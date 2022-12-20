@@ -1,7 +1,7 @@
 <script>
 	// @ts-nocheck
 	import '/src/app.scss';
-	import { connect } from '/src/stores.js';
+	import { connect, building, floor } from '/src/stores.js';
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
 	import SensorData from '/src/components/SensorData.svelte';
@@ -21,7 +21,7 @@
 		{title: 'Total', type: 'totalRooms'},
 		{title: 'Occupied', type:'occupiedRooms'},
 		{title: 'Available', type:'availableRooms'},
-		{title: 'Booked', type:'booked'}
+		//{title: 'Booked', type:'booked'}
 	]
 
 	onMount(async () => {
@@ -32,7 +32,7 @@
 	});
 </script>
 
-<p class="subtitle has-text-white mb-0 is-flex is-justify-content-center">{title}</p>
+<p class="subtitle has-text-white mb-0 is-flex is-justify-content-center">{$building} {$floor}</p>
 <nav class="level px-3">
 	{#each sensors as sensor}
 	<div class="level-item has-text-centered">
