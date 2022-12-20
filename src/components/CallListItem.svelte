@@ -71,7 +71,7 @@
 		{#if person}
 			<div class="level-item mr-5">
 				<figure class="image is-64x64">
-					<img class="is-rounded" src={person.avatar} />
+					<img alt="Avatar" class="is-rounded" src={person.avatar} />
 				</figure>
 			</div>
 		{/if}

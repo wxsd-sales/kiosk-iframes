@@ -12,7 +12,7 @@
 	import video from '../assets/GSA-SMALL.mp4';
 	import image from '../assets/GSA.jpeg';
 	import { page } from '$app/stores';
-	import {setupConnection} from '../stores'
+	import { connect, monitorWeather, weather, city, temperature } from '../stores';
 	import { onMount } from 'svelte';
 
 	let URL = null;
@@ -24,19 +24,25 @@
 	};
 
 	const token = $page.url.searchParams.get('token') || null;
+	const cityId = $page.url.searchParams.get('cityId') || null;
+	const weatherToken = $page.url.searchParams.get('weatherToken') || null;
 
-	// Setup Websocket using token
-	if(token != null) {
-		setupConnection(token)
-	}
+	onMount(async () => {
+		// Setup Websocket using token
+		if (token != null) {
+			connect(token);
+		}
+
+		if (cityId != null && weatherToken != null) {
+			monitorWeather(cityId, weatherToken, 'imperial', 30);
+		}
+	});
 
 	// Add the token to the end of the dashboard url
-	applications.forEach((app, index)=>{
-		if(!app.url.includes('dnaspaces')) return;
-		applications[index].url = app.url+token;
-	})
-
-
+	applications.forEach((app, index) => {
+		if (!app.url.includes('dnaspaces')) return;
+		applications[index].url = app.url + token;
+	});
 
 	const includeVideoBackground = $page.url.searchParams.get('includeVideoBackground') === 'yes';
 </script>
@@ -56,7 +62,6 @@
 	</div>
 	<nav
 		class="navbar is-flex is-align-items-center is-translucent-black pl-4 is-transparent pt-4 pb-2"
-		role="navigation"
 		style="margin-bottom: 1rem;"
 		aria-label="main navigation"
 	>
@@ -67,7 +72,7 @@
 					URL = null;
 				}}
 			>
-				<img src={logo} />
+				<img alt='Company Logo' src={logo} />
 			</figure>
 		</div>
 		<div class="navbar-item is-flex is-flex-direction-column  is-align-items-start">
@@ -82,8 +87,11 @@
 
 			<div class="navbar-end is-flex is-flex-direction-column">
 				<div class="columns navbar-item p-0">
-					<div class="column has-text-white p-1" style="width: 9rem">New York</div>
-					<div class="column has-text-white p-1">75°</div>
+					<div class="column has-text-white p-1" style="width: 9rem">{$city}</div>
+					<div class="column has-text-white p-1">{$temperature}°F</div>
+				</div>
+				<div class="columns navbar-item p-0">
+					<div class="column has-text-white p-1">{$weather}</div>
 				</div>
 				<div class="columns navbar-item p-0">
 					<div class="column has-text-white p-1">{new Date().toDateString()}</div>
@@ -130,7 +138,7 @@
 					style="height: 15rem; margin-left: 4rem;"
 				>
 					<figure class="image">
-						<img src={innovation} style="width: 22rem; height: 12rem;" />
+						<img alt= 'Innovation' src={innovation} style="width: 22rem; height: 12rem;" />
 					</figure>
 					<p
 						class="has-text-white  is-size-5"
@@ -148,24 +156,19 @@
 				<div class="contact has-text-weight-medium has-text-light">
 					<div class="box is-translucent-black mb-0" style="margin-left: 4rem;">
 						<p class="subtitle has-text-white mb-4 is-flex is-justify-content-center">
-							Room Metrics
+							Office Metrics
 						</p>
 						<div class="columns">
 							<div class="column">
-								<SensorData title="Temperature" icon="thermometer" type='ambientTemp' color="danger" />
+								<SensorData title="Temperature" icon="thermometer" type="ambientTemp" />
 							</div>
 							<div class="column">
-								<SensorData title="Air Quality" icon="smoke" type='airQuality' color="danger" />
-								<SensorData title="Humidity" icon="water-percent" type='relativeHumidity'  color="warning" />
+								<SensorData title="Air Quality" icon="smoke" type="airQuality" />
+								<SensorData title="Humidity" icon="water-percent" type="relativeHumidity" />
 							</div>
 							<div class="column">
-								<SensorData title="Noise" icon="waveform" type='ambientNoise' color="success" />
-								<SensorData
-									title="Occupancy"
-									icon="account-group"
-									type='peopleCount'
-									color="success"
-								/>
+								<SensorData title="Noise" icon="waveform" type="ambientNoise" />
+								<SensorData title="Occupancy" icon="account-group" type="peopleCount" />
 							</div>
 						</div>
 					</div>
@@ -173,7 +176,7 @@
 			</div>
 		{/if}
 
-		{#each applications as { url }}
+		{#each applications as { url, title }}
 			{#if url !== 'NO-URL'}
 				<div class="iframe" class:hide={url !== URL}>
 					<div
@@ -188,7 +191,7 @@
 						</span>
 						<span class="is-size-5 has-text-weight-medium"> Return to Main Menu </span>
 					</div>
-					<iframe src={url} bind:this={frame} />
+					<iframe title={title} src={url} bind:this={frame} />
 				</div>
 			{/if}
 		{/each}
@@ -254,15 +257,6 @@
 		margin-bottom: 0.5rem;
 	}
 
-	.textContainer {
-		width: 30rem;
-		height: 15rem;
-		white-space: pre;
-		margin-right: 0.25rem;
-		margin-top: 0.5rem;
-		border: none;
-	}
-
 	.app {
 		display: flex;
 		height: 100%;
@@ -277,7 +271,4 @@
 		filter: brightness(50%);
 	}
 
-	.content {
-		z-index: 1;
-	}
 </style>

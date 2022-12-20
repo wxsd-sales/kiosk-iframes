@@ -17,7 +17,7 @@
 <div class="card is-translucent-black card-helper" on:click={select}>
 	<div class="card-image">
 		<figure class="image is-4by3">
-			<img src={imgUrl} alt="Placeholder image" />
+			<img src={imgUrl} alt="Card" />
 		</figure>
 	</div>
 	<div class="card-content">
