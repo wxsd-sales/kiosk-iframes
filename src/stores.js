@@ -1,24 +1,26 @@
 // @ts-nocheck
 import { writable } from 'svelte/store';
-import {browser} from '$app/environment';
+import { browser } from '$app/environment';
 import openWeather from './lib/weather';
 
 // @ts-ignore
 export const telemetry = writable({});
+export const availablity = writable({});
 
 export const weather = writable('Sunny');
 export const temperature = writable('75°');
 export const city = writable('New York');
 
-export function connect(token){
+export function connect(token) {
 
-    if(!browser) return;
+    if (!browser) return;
 
     const location = 1233867
     const events = [
         "heartbeat",
         "location",
         "analytics",
+        "floorAvailability",
         "deskAvailability",
     ]
 
@@ -35,9 +37,9 @@ export function connect(token){
             socket.send(JSON.stringify({ "event": events[i], "location": location },))
         }
         // Send heart beat every 30 sec
-        heartbeat = setInterval(()=>{
+        heartbeat = setInterval(() => {
             socket.send(JSON.stringify({ "event": "heartbeat", "location": location },))
-        }, 30*1000)
+        }, 30 * 1000)
     }
 
     // Process all incoming telemetry events
@@ -53,53 +55,54 @@ export function connect(token){
     }
 
     // Reconnect if the websocket is closed
-    socket.onclose = function(e) {
+    socket.onclose = function (e) {
         console.log('Socket is closed. Reconnect will be attempted in 1 second.', e.reason);
         clearTimeout(heartbeat)
-        setTimeout(function() {
-          connect();
+        setTimeout(function () {
+            connect();
         }, 1000);
-      };
-    
+    };
+
     // Close the websocket if we get an error
-    socket.onerror = function(err) {
+    socket.onerror = function (err) {
         console.error('Socket encountered error: ', err.message, 'Closing socket');
         socket.close();
-      };
+    };
 
     function updateTelemetry(type, data) {
-        if(type !== 'analytics') return;
-        if(data.level !== 'FLOOR') return;
-        console.log(data);
-        telemetry.set(data)
+        switch (type) {
+            case 'analytics':
+                if (data.level === 'FLOOR') telemetry.set(data)
+                break;
+            case 'floorAvailability':
+                availablity.set(data)
+                break;
+        }
     }
 }
 
-export function monitorWeather(cityId, weatherToken, units, frequency){
-    if(!browser) return;
+export function monitorWeather(cityId, weatherToken, units, frequency) {
+    if (!browser) return;
 
     console.log(`Monitoring Weather for CityId: ${cityId}`)
-
     const openweather = new openWeather(cityId, weatherToken, units);
-
-  
     openweather.getWeather()
-    .then( result => {
-        weather.set(toUpper(result.weather[0].description));
-        temperature.set(Math.round(result.main.temp))
-        city.set(result.name)
-    })
-
-    setInterval(()=>{
-        openweather.getWeather()
         .then(result => {
             weather.set(toUpper(result.weather[0].description));
             temperature.set(Math.round(result.main.temp))
+            city.set(result.name)
         })
-    }, frequency*60*1000)
+
+    setInterval(() => {
+        openweather.getWeather()
+            .then(result => {
+                weather.set(toUpper(result.weather[0].description));
+                temperature.set(Math.round(result.main.temp))
+            })
+    }, frequency * 60 * 1000)
 
 
-    function toUpper(text){
+    function toUpper(text) {
         const words = text.split(" ");
         for (let i = 0; i < words.length; i++) {
             words[i] = words[i][0].toUpperCase() + words[i].substr(1);

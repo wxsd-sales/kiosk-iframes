@@ -67,6 +67,10 @@ export class getColor{
      */
       getAirQuality(value) {
 		switch (value) {
+			case 'Good':
+				return 'success';
+			case 'Very Good':
+				return 'success';
 			case 'Medium':
 				return 'success';
 			case 'High':
