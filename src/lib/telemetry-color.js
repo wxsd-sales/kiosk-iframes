@@ -72,7 +72,7 @@ export class getColor{
 			case 'Very Good':
 				return 'success';
 			case 'Medium':
-				return 'success';
+				return 'warning';
 			case 'High':
 				return 'danger';
 			default:
