@@ -59,7 +59,9 @@
 	</div>
 	<nav
 		class="navbar is-flex is-align-items-center is-translucent-black pl-4 is-transparent pt-4 pb-2"
-		aria-label="main navigation">
+		style="margin-bottom: 1rem;"
+		aria-label="main navigation"
+	>
 		<div class="navbar-brand">
 			<figure
 				class="image is-128x128 mr-4 logo"
