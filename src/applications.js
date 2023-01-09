@@ -12,7 +12,7 @@ export default [
     "subtitle": "Reserve a room or desk to work",
     "imgUrl": workPlace,
     "avatarUrl": "chair-rolling",
-    "url": " https://templates.demo.place.tech/booking-panel/#/panel/space-0",
+    "url": "https://gsa.placeos.run/map-kiosk/#/explore",
     "description": "View space availability and reserve desks and rooms on the interactive map"
   },
   {
@@ -21,7 +21,7 @@ export default [
     "subtitle": "View Floorplan with Environmental Info",
     "imgUrl": office,
     "avatarUrl": "map-marker-account-outline",
-    "url": "https://workspaces.dnaspaces.io/?token=fdf320ef-1aae-4479-b638-3dd823f9e4bb#/dashboard",
+    "url": "https://workspaces.dnaspaces.io/?token=ab33deef-ca27-431f-b803-4c1224079c5d#/dashboard",
     "description": "Locate an available space to work and view environmental data on a 3D map"
   },
   {

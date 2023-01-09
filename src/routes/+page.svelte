@@ -12,14 +12,13 @@
 	import video from '../assets/GSA-SMALL.mp4';
 	import image from '../assets/GSA.jpeg';
 	import { page } from '$app/stores';
-	import { onMount } from 'svelte';
 
 	let URL = null;
 	let frame;
 
 	const onSelect = (url) => {
 		URL = url;
-		console.log(URL);
+		frame.src = url;
 	};
 
 	const includeVideoBackground = $page.url.searchParams.get('includeVideoBackground') === 'yes';
@@ -66,8 +65,8 @@
 
 			<div class="navbar-end is-flex is-flex-direction-column">
 				<div class="columns navbar-item p-0">
-					<div class="column has-text-white p-1" style="width: 9rem">New York</div>
-					<div class="column has-text-white p-1">75°</div>
+					<div class="column has-text-white p-1" style="width: 9rem">Washington DC</div>
+					<div class="column has-text-white p-1">75open°</div>
 				</div>
 				<div class="columns navbar-item p-0">
 					<div class="column has-text-white p-1">{new Date().toDateString()}</div>
@@ -161,7 +160,7 @@
 						class="has-background-grey-lighter close-button"
 						on:click={() => {
 							URL = null;
-							frame.src = url;
+							frame.src = null;
 						}}
 					>
 						<span class="icon has-text-link-dark">
@@ -200,7 +199,7 @@
 		z-index: 1;
 		display: flex;
 		position: relative;
-		height: 80%;
+		height: 90%;
 		justify-content: center;
 		align-items: center;
 		opacity: 1;
