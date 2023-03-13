@@ -1,0 +1,171 @@
+{
+  "src/assets/cardImages/innovation.jpeg": {
+    "file": "_app/immutable/assets/innovation-526a9878.jpeg",
+    "src": "src/assets/cardImages/innovation.jpeg"
+  },
+  "src/assets/background/GSA.jpeg": {
+    "file": "_app/immutable/assets/GSA-e2942604.jpeg",
+    "src": "src/assets/background/GSA.jpeg"
+  },
+  "src/assets/cardImages/tour.jpeg": {
+    "file": "_app/immutable/assets/tour-d3de98b9.jpeg",
+    "src": "src/assets/cardImages/tour.jpeg"
+  },
+  "src/assets/cardImages/concierge.jpeg": {
+    "file": "_app/immutable/assets/concierge-b47a2a0e.jpeg",
+    "src": "src/assets/cardImages/concierge.jpeg"
+  },
+  "src/assets/cardImages/workPlace.jpeg": {
+    "file": "_app/immutable/assets/workPlace-bf8d8289.jpeg",
+    "src": "src/assets/cardImages/workPlace.jpeg"
+  },
+  "src/assets/cardImages/office.jpeg": {
+    "file": "_app/immutable/assets/office-0f8435bd.jpeg",
+    "src": "src/assets/cardImages/office.jpeg"
+  },
+  "src/assets/logos/logo-white.png": {
+    "file": "_app/immutable/assets/logo-white-761f180b.png",
+    "src": "src/assets/logos/logo-white.png"
+  },
+  "src/assets/logos/logo-blue.png": {
+    "file": "_app/immutable/assets/logo-blue-74d9bdc2.png",
+    "src": "src/assets/logos/logo-blue.png"
+  },
+  "src/assets/DNASpaces.png": {
+    "file": "_app/immutable/assets/DNASpaces-67f8dd9c.png",
+    "src": "src/assets/DNASpaces.png"
+  },
+  "src/assets/background/GSA-Video.mp4": {
+    "file": "_app/immutable/assets/GSA-Video-cb134b76.mp4",
+    "src": "src/assets/background/GSA-Video.mp4"
+  },
+  "node_modules/@mdi/font/fonts/materialdesignicons-webfont.eot": {
+    "file": "_app/immutable/assets/materialdesignicons-webfont-861aea05.eot",
+    "src": "node_modules/@mdi/font/fonts/materialdesignicons-webfont.eot"
+  },
+  "node_modules/@mdi/font/fonts/materialdesignicons-webfont.woff2": {
+    "file": "_app/immutable/assets/materialdesignicons-webfont-e52d60f6.woff2",
+    "src": "node_modules/@mdi/font/fonts/materialdesignicons-webfont.woff2"
+  },
+  "node_modules/@mdi/font/fonts/materialdesignicons-webfont.woff": {
+    "file": "_app/immutable/assets/materialdesignicons-webfont-48d3eec6.woff",
+    "src": "node_modules/@mdi/font/fonts/materialdesignicons-webfont.woff"
+  },
+  "node_modules/@mdi/font/fonts/materialdesignicons-webfont.ttf": {
+    "file": "_app/immutable/assets/materialdesignicons-webfont-bd725a7a.ttf",
+    "src": "node_modules/@mdi/font/fonts/materialdesignicons-webfont.ttf"
+  },
+  "node_modules/@sveltejs/kit/src/runtime/client/start.js": {
+    "file": "_app/immutable/start-e57cfe7f.js",
+    "src": "node_modules/@sveltejs/kit/src/runtime/client/start.js",
+    "isEntry": true,
+    "imports": [
+      "_singletons-2b16acfd.js"
+    ],
+    "dynamicImports": [
+      ".svelte-kit/generated/nodes/0.js",
+      ".svelte-kit/generated/nodes/1.js",
+      ".svelte-kit/generated/nodes/2.js"
+    ]
+  },
+  "src/routes/+layout.svelte": {
+    "file": "_app/immutable/components/pages/_layout.svelte-b3c007c0.js",
+    "src": "src/routes/+layout.svelte",
+    "isEntry": true,
+    "imports": [
+      "_singletons-2b16acfd.js",
+      "_stores-77a4fadd.js",
+      "_stores-1a41b0fc.js"
+    ],
+    "css": [
+      "_app/immutable/assets/_layout-7e902356.css"
+    ],
+    "assets": [
+      "_app/immutable/assets/logo-white-761f180b.png",
+      "_app/immutable/assets/logo-blue-74d9bdc2.png",
+      "_app/immutable/assets/GSA-Video-cb134b76.mp4",
+      "_app/immutable/assets/GSA-e2942604.jpeg"
+    ]
+  },
+  "node_modules/@sveltejs/kit/src/runtime/components/error.svelte": {
+    "file": "_app/immutable/components/error.svelte-8c125c24.js",
+    "src": "node_modules/@sveltejs/kit/src/runtime/components/error.svelte",
+    "isEntry": true,
+    "imports": [
+      "_singletons-2b16acfd.js",
+      "_stores-77a4fadd.js"
+    ]
+  },
+  "src/routes/+page.svelte": {
+    "file": "_app/immutable/components/pages/_page.svelte-0807b9ae.js",
+    "src": "src/routes/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_singletons-2b16acfd.js",
+      "_stores-1a41b0fc.js",
+      "_stores-77a4fadd.js"
+    ],
+    "css": [
+      "_app/immutable/assets/_page-c72b9326.css"
+    ],
+    "assets": [
+      "_app/immutable/assets/workPlace-bf8d8289.jpeg",
+      "_app/immutable/assets/concierge-b47a2a0e.jpeg",
+      "_app/immutable/assets/office-0f8435bd.jpeg",
+      "_app/immutable/assets/tour-d3de98b9.jpeg",
+      "_app/immutable/assets/DNASpaces-67f8dd9c.png",
+      "_app/immutable/assets/innovation-526a9878.jpeg",
+      "_app/immutable/assets/materialdesignicons-webfont-861aea05.eot",
+      "_app/immutable/assets/materialdesignicons-webfont-e52d60f6.woff2",
+      "_app/immutable/assets/materialdesignicons-webfont-48d3eec6.woff",
+      "_app/immutable/assets/materialdesignicons-webfont-bd725a7a.ttf"
+    ]
+  },
+  "_singletons-2b16acfd.js": {
+    "file": "_app/immutable/chunks/singletons-2b16acfd.js"
+  },
+  "_stores-77a4fadd.js": {
+    "file": "_app/immutable/chunks/stores-77a4fadd.js",
+    "imports": [
+      "_singletons-2b16acfd.js"
+    ]
+  },
+  "_stores-1a41b0fc.js": {
+    "file": "_app/immutable/chunks/stores-1a41b0fc.js",
+    "imports": [
+      "_singletons-2b16acfd.js"
+    ]
+  },
+  ".svelte-kit/generated/nodes/0.js": {
+    "file": "_app/immutable/chunks/0-26027935.js",
+    "src": ".svelte-kit/generated/nodes/0.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "src/routes/+layout.svelte"
+    ]
+  },
+  ".svelte-kit/generated/nodes/1.js": {
+    "file": "_app/immutable/chunks/1-59405cef.js",
+    "src": ".svelte-kit/generated/nodes/1.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "node_modules/@sveltejs/kit/src/runtime/components/error.svelte"
+    ]
+  },
+  ".svelte-kit/generated/nodes/2.js": {
+    "file": "_app/immutable/chunks/2-d73cfe20.js",
+    "src": ".svelte-kit/generated/nodes/2.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "src/routes/+page.svelte"
+    ]
+  },
+  "src/routes/+layout.css": {
+    "file": "_app/immutable/assets/_layout-7e902356.css",
+    "src": "src/routes/+layout.css"
+  },
+  "src/routes/+page.css": {
+    "file": "_app/immutable/assets/_page-c72b9326.css",
+    "src": "src/routes/+page.css"
+  }
+}
