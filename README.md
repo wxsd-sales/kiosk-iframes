@@ -52,6 +52,11 @@ To download a copy of this project, modify it and build your own. Follow these i
 
 6. Upload the contents of the ``/build`` directory to any static site hosting service.
 
+## Dependencies
+- [Webex Browser SDK](https://github.com/webex/webex-js-sdk)
+- [React](https://reactjs.org)
+- [TypeScript](https://www.typescriptlang.org/)
+
 
 ## URL Parameters
 
