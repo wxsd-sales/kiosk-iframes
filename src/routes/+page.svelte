@@ -56,9 +56,7 @@
 	<div class="tile is-ancestor px-5 pt-1 m-0">
 		{#each applications as app, i}
 			<div class="tile is-parent">
-				<BoopAction boopParams={{ scale: 1.1, timing: 200 }}>
-					<Card {...app} {onSelect} />
-				</BoopAction>
+				<Card {...app} {onSelect} />
 			</div>
 		{/each}
 	</div>
