@@ -48,7 +48,6 @@
 	}
 
 	if (token != null) {
-		console.log('here');
 		socket = connect(token);
 	}
 </script>
@@ -120,24 +119,9 @@
 			<QA />
 		</div>
 	</div>
-{:else}
-	<div class="iframe" scrolling="no">
-		<div
-			class="has-background-grey-lighter close-button"
-			on:click={() => {
-				URL = null;
-			}}
-		>
-			<span class="icon has-text-link-dark">
-				<i class="mdi mdi-48px mdi-arrow-left-bold" />
-			</span>
-			<span class="is-size-5 has-text-weight-medium"> Return to Main Menu </span>
-		</div>
-		<iframe src={URL} scrolling="no" bind:this={frame} />
-	</div>
 {/if}
 
-<!-- {#each applications as { url, title }}
+{#each applications as { url, title }}
 	{#if url !== 'NO-URL'}
 		<div class="iframe" scrolling="no" class:hide={url !== URL}>
 			<div
@@ -155,7 +139,8 @@
 			<iframe {title} src={url} scrolling="no" bind:this={frame} />
 		</div>
 	{/if}
-{/each} -->
+{/each}
+
 <style>
 	.hide {
 		display: none !important;
