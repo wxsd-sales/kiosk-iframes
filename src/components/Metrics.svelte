@@ -3,13 +3,14 @@
 	import { building, floor } from '../stores.js';
 	import SensorData from '../components/SensorData.svelte';
 	import RoomData from '../components/RoomData.svelte';
+	import { onMount } from 'svelte';
 
 	export let title = 'Office Metrics';
 	export let token: string | null = null;
 	export let socket: WebSocket;
 
-	console.log('SOCKET', socket);
-	const demo = socket == null;
+	let demo = false;
+
 	console.log('Demo Mode: ' + demo);
 	$: office = demo ? title + ' (Demo)' : `${$building} ${$floor}`;
 
@@ -26,6 +27,10 @@
 		{ title: 'Available', type: 'availableRooms' }
 		//{title: 'Booked', type:'booked'}
 	];
+
+	onMount(() => {
+		demo = socket == null;
+	});
 </script>
 
 <p class="subtitle has-text-white has-text-centered">{office}</p>

@@ -47,12 +47,10 @@
 		});
 	}
 
-	onMount(() => {
-		if (token != null) {
-			console.log('here');
-			socket = connect(token);
-		}
-	});
+	if (token != null) {
+		console.log('here');
+		socket = connect(token);
+	}
 </script>
 
 <svelte:head>
