@@ -14,6 +14,8 @@ export const city = writable('New York');
 export const building = writable('');
 export const floor = writable('');
 
+let globalToken = null;
+
 export function connect(token) {
 
     if (!browser) return;
@@ -30,6 +32,7 @@ export function connect(token) {
     console.log('Setting up connection')
     let heartbeat
     let locationId = ''
+    globalToken = token;
     const socket = new WebSocket('wss://webex-api-server.dnaspaces.io/webexClient?token=' + token);
 
     socket.binaryType = "blob";
@@ -63,7 +66,7 @@ export function connect(token) {
         console.log('Socket is closed. Reconnect will be attempted in 1 second.', e.reason);
         clearTimeout(heartbeat)
         setTimeout(function () {
-            connect();
+            connect(globalToken);
         }, 1000);
     };
 
@@ -108,6 +111,8 @@ export function connect(token) {
 
         }
     }
+
+    return socket;
 }
 
 export function monitorWeather(cityId, weatherToken, units, frequency) {

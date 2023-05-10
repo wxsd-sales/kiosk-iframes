@@ -3,13 +3,15 @@
 	import Card from '../components/card.svelte';
 	import Metrics from '../components/Metrics.svelte';
 	import applications from '../applications';
-	import BoopAction from '../animation/BoopAction.svelte';
 	import QA from '../components/Q&A.svelte';
+	import { connect } from '../stores.js';
 	import listItems from '../faq';
 	import innovation from '../assets/cardImages/innovation.jpeg';
 	import { page } from '$app/stores';
+	import { onMount } from 'svelte';
 
 	let URL: string | null = null;
+	let socket = null;
 	let frame = {};
 
 	const onSelect = (url: string) => {
@@ -44,6 +46,13 @@
 			applications[index].url = 'https://workspaces.dnaspaces.io/?token=' + token;
 		});
 	}
+
+	onMount(() => {
+		if (token != null) {
+			console.log('here');
+			socket = connect(token);
+		}
+	});
 </script>
 
 <svelte:head>
@@ -89,7 +98,7 @@
 		</div>
 		<div class="tile is-parent is-4">
 			<article class="tile is-child is-translucent-black box">
-				<Metrics title="Office Metrics" {token} />
+				<Metrics title="Office Metrics" {token} {socket} />
 			</article>
 		</div>
 	</div>
