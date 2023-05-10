@@ -1,4 +1,4 @@
-import axiosInstance from './axios-wrapper';
+import axiosInstance from './axios-wrapper.+server';
 
 export const getPersonDetails = async (ID) => {
   try {
