@@ -27,8 +27,7 @@ const config = {
 		adapter: adapter({
 			pages: 'build',
 			assets: 'build',
-			fallback: false,
-			precompress: false,
+			fallback: 'index.html'
 		}),
 		paths: {
 			base: urlBase,
