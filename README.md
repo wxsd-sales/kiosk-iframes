@@ -12,8 +12,14 @@ This is a Webex Device demo Kiosk Web App which includes the following features:
 ![GSA - Kiosk iframe Feature breakdown](https://user-images.githubusercontent.com/21026209/213925528-4888992b-5a9f-4620-8702-f4ba07f6ba98.gif)
 
  
-
 ## Setup
+
+### Prerequisites & Dependencies: 
+
+- Node 16
+- Webex Device (Desk or Board Series) running RoomOS 11
+
+### Installation Steps:
 
 This project was created using Sveltekit and generates a static web site which can be hosted on any web service.
 
@@ -48,13 +54,9 @@ To download a copy of this project, modify it and build your own. Follow these i
 
 6. Upload the contents of the ``/build`` directory to any static site hosting service.
 
-## Dependencies
-- [Webex Browser SDK](https://github.com/webex/webex-js-sdk)
-- [React](https://reactjs.org)
-- [TypeScript](https://www.typescriptlang.org/)
 
 
-## URL Parameters
+### URL Parameters
 
 To display live data and handle auto authentication for certain services, the Kiosk demo uses URL parameters.
 
@@ -72,7 +74,7 @@ Example of a URL with all tokens:
 https://wxsd-sales.github.io/kiosk-iframes?token=<Cisco Spaces Token>&deviceSIPAddress=person@eample.com&cityId=5128581&weatherToken=<Open Weather API Token>&x-api-key=<Place OS Dashboard API>
 ```
 
-## Add to your Webex Device
+### Add to your Webex Device
 
 This web app can be loaded on a Webex Device either in Kiosk Mode or as a Web App.
 
