@@ -11,11 +11,7 @@ This is a Webex Device demo Kiosk Web App which includes the following features:
 
 ![GSA - Kiosk iframe Feature breakdown](https://user-images.githubusercontent.com/21026209/213925528-4888992b-5a9f-4620-8702-f4ba07f6ba98.gif)
 
- *_Everything included is for demo and Proof of Concept purposes only. Your use of the site is solely at your own risk. This site may contain links to third party content, which we do not warrant, endorse, or assume liability for. These demos are for Cisco Webex usecases, but are not Official Cisco Webex Branded demos._
  
-## Live Demo
-
-A live demo is available here with demo data: https://wxsd-sales.github.io/kiosk-iframes
 
 ## Setup
 
@@ -60,7 +56,7 @@ To download a copy of this project, modify it and build your own. Follow these i
 
 ## URL Parameters
 
-To display live data and handle auto authentication for centain services, the Kiosk demo uses URL paremeters.
+To display live data and handle auto authentication for certain services, the Kiosk demo uses URL parameters.
 
 List of parameters:
 
@@ -80,17 +76,30 @@ https://wxsd-sales.github.io/kiosk-iframes?token=<Cisco Spaces Token>&deviceSIPA
 
 This web app can be loaded on a Webex Device either in Kiosk Mode or as a Web App.
 
-In Kiosk mode, the page will be permentally displayed while hiding the devices call controls. For more information on how to setup kiosk mode correctly on your device and set the Kiosk URL, please refer this this guide: 
+In Kiosk mode, the page will be permanently displayed while hiding the devices call controls. For more information on how to setup kiosk mode correctly on your device and set the Kiosk URL, please refer this this guide: 
 https://roomos.cisco.com/doc/TechDocs/KioskMode
 
-If you just want to demo as a Web App and lauch it from a single button on your Webex Device, refer to this guide: https://roomos.cisco.com/doc/UseCases/WebApps 
+If you just want to demo as a Web App and launch it from a single button on your Webex Device, refer to this guide: https://roomos.cisco.com/doc/UseCases/WebApps 
 
 Lastly for the Cisco Space dashboards 3D Map, be sure to enable WebGL on your device, more info here: https://roomos.cisco.com/xapi/Configuration.WebEngine.Features.WebGL
 
+  
+## Demo
+
+Check out our live demo, available [here]([<insert link>](https://wxsd-sales.github.io/kiosk-iframes))!
+
+*For more demos & PoCs like this, check out our [Webex Labs site](https://collabtoolbox.cisco.com/webex-labs).
+
+
 ## License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+All contents are licensed under the MIT license. Please see [license](LICENSE) for details.
 
-## Support
 
-Please reach out to the WXSD team at [wxsd@external.cisco.com](mailto:wxsd@external.cisco.com?subject=kiosk-iframes)
+## Disclaimer
+
+Everything included is for demo and Proof of Concept purposes only. Use of the site is solely at your own risk. This site may contain links to third party content, which we do not warrant, endorse, or assume liability for. These demos are for Cisco Webex use cases, but are not Official Cisco Webex Branded demos.
+
+
+## Questions
+Please contact the WXSD team at [wxsd@external.cisco.com](mailto:wxsd@external.cisco.com?subject=kiosk-iframes) for questions. Or, if you're a Cisco internal employee, reach out to us on the Webex App via our bot (globalexpert@webex.bot). In the "Engagement Type" field, choose the "API/SDK Proof of Concept Integration Development" option to make sure you reach our team. 
