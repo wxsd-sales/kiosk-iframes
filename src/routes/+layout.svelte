@@ -4,7 +4,7 @@
 	import Header from '../components/Header.svelte';
 	import video from '../assets/background/GSA-Video.mp4';
 	import image from '../assets/background/GSA.jpeg';
-	export let data: LayoutData;
+	//export let data: LayoutData;
 	const includeVideoBackground = $page.url.searchParams.get('includeVideoBackground') === 'yes';
 </script>
 

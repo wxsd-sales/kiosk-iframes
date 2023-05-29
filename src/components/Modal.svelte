@@ -4,6 +4,7 @@
 </script>
 
 <div class="modal is-active">
+	<!-- svelte-ignore a11y-click-events-have-key-events -->
 	<div class="modal-background " on:click={toggleModal} />
 	<div class="modal-card">
 		<header class="modal-card-head">
