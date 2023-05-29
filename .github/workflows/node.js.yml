@@ -17,6 +17,9 @@ concurrency:
   group: "pages"
   cancel-in-progress: true
 
+env: 
+  PUBLIC_WIFI_PASSWORD:  ${{ vars.PUBLIC_WIFI_PASSWORD }}
+
 jobs:
   build:
     runs-on: ubuntu-latest

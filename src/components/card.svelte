@@ -4,16 +4,15 @@
 	export let subtitle: string;
 	export let avatarUrl: string;
 	export let description: string;
-	export let url: string;
-	export let onSelect: (url: string) => void;
+	export let ref: number;
+	export let onSelect: (option: number) => void;
 
 	const select = () => {
-		onSelect(url);
-
-		return null;
+		onSelect(ref);
 	};
 </script>
 
+<!-- svelte-ignore a11y-click-events-have-key-events -->
 <div class="card is-translucent-black card-helper" on:click={select}>
 	<div class="card-image">
 		<figure class="image is-4by3">

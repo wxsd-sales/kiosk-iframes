@@ -1,5 +1,18 @@
  export default class getColor {
 
+	static processTelemetry(type: 'ambientTemp' | 'airQuality' | 'relativeHumidity' | 'ambientNoise', data: string){
+		switch (type) {
+			case 'ambientTemp':
+				return getColor.getTempColor(data);
+			case 'relativeHumidity':
+				return getColor.getHumidityColor(data);
+			case 'ambientNoise':
+				return getColor.getAmbientNoiseColor(data);
+			case 'airQuality':
+				return getColor.getAirQuality(data);
+		}
+	}
+
 	static getAmbientNoiseColor(value: string): string {
 		switch (value) {
 			case 'Quiet':
