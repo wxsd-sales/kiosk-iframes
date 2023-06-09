@@ -78,7 +78,7 @@
 	<div class="tile is-ancestor px-5 m-0">
 		<div class="tile is-parent is-vertical">
 			<article class="tile is-child is-translucent-black box">
-				<div class="columns">
+				<div class="columns is-vcentered">
 					<div class="column is-4">
 						<figure class="image">
 							<img alt="Innovation" src={innovation} />
@@ -114,7 +114,7 @@
 				{/if}
 			</article>
 		</div>
-		<div class="tile is-parent is-4">
+		<div class="tile is-parent is-5">
 			<article
 				class="tile is-child is-flex is-flex-direction-column is-justify-content-space-around is-translucent-black box"
 			>
@@ -156,7 +156,11 @@
 				</span>
 				<span class="is-size-5 has-text-weight-medium"> Return to Main Menu </span>
 			</div>
-			<iframe {title} src={url} scrolling="no" />
+			{#if url.includes('youtube')}
+				<iframe {title} src={i == selection ? url : ''} scrolling="no" />
+			{:else}
+				<iframe {title} src={url} scrolling="no" />
+			{/if}
 		</div>
 	{/if}
 {/each}

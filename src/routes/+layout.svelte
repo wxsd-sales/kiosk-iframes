@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { LayoutData } from './$types';
+	//import type { LayoutData } from './$types';
 	import { page } from '$app/stores';
 	import Header from '../components/Header.svelte';
 	import video from '../assets/background/GSA-Video.mp4';
