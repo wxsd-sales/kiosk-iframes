@@ -26,11 +26,12 @@ export default [
     "description": "Locate an available space to work and view environmental data on a 3D map"
   },
   {
+    "tag": "YouTube",
     "title": "Take a Tour",
     "subtitle": "Take a walkthrough of the WIL space",
     "imgUrl": tour,
     "avatarUrl": "account-tie-hat",
-    "url": "https://www.youtube.com/embed/-BY-HmsUfoY",
+    "url": "https://www.youtube.com/embed/-BY-HmsUfoY?rel=0",
     "description": "Journey on a 3D tour of each Neighborhood in the WIL environment."
   },
   {
