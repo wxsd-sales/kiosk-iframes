@@ -80,7 +80,7 @@ export function connect(token) {
                 break;
             case 'floorAvailability':
                 console.log('Floor Availablity Data Received')
-                availablity.set(data)
+                availablity.set(countRooms(data.rooms))
                 break;
             case 'contextInfo':
                 console.log('Context Information Received')
@@ -105,6 +105,22 @@ export function connect(token) {
                 break;
 
         }
+    }
+
+    function countRooms(rooms){
+        const counts = {};
+
+        rooms.forEach(room =>{
+            counts[room.availability] = counts[room.availability] ? counts[room.availability] + 1 : 1;
+        })
+
+        const result = {
+            totalRooms: rooms.length,
+            occupiedRooms: counts.Occupied ? counts.Occupied : 0,
+            availableRooms: counts.Available ? counts.Available : 0,
+            booked: counts.Booked ? counts.Booked : 0
+        }
+        return result;
     }
 
     return socket;
